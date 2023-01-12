@@ -1,2 +1,2 @@
 # stepik_final_exercise
-Final exercise in stepic course
+Final exercise in stepik course
