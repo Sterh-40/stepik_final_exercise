@@ -16,7 +16,7 @@ def browser():
     print("\nStart browser test..")
     yield browser
     print("\nQuit browser..")
-    time.sleep(300)
+    time.sleep(3)
     browser.quit()
 
 
