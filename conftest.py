@@ -2,6 +2,7 @@ import time
 
 import pytest
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 
 
 def pytest_addoption(parser):
@@ -16,7 +17,7 @@ def browser():
     print("\nStart browser test..")
     yield browser
     print("\nQuit browser..")
-    time.sleep(3)
+    time.sleep(1)
     browser.quit()
 
 

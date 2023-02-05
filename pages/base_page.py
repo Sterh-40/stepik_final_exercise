@@ -17,3 +17,8 @@ class BasePage():
         except:
             NoSuchElementException
             return False
+
+    def get_current_url(self):
+        ''' return the url on your current session '''
+        base_url = self.browser.current_url
+        return base_url
