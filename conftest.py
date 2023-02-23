@@ -14,10 +14,11 @@ def pytest_addoption(parser):
 @pytest.fixture(scope="function")
 def browser():
     browser = webdriver.Chrome()
+
     print("\nStart browser test..")
     yield browser
     print("\nQuit browser..")
-    time.sleep(1)
+    time.sleep(100)
     browser.quit()
 
 

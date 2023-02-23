@@ -11,11 +11,11 @@ class LoginPage(BasePage):
         self.should_be_register_form()
 
     def should_be_login_url(self):
-        self.browser.find_element(*LoginPageLocators.LOGIN_URL).click()
-        assert "login" in self.get_current_url(), "This url does not exist"
+        assert "login" in self.browser.current_url, "This url does not exist"
+        print(f'\n{self.browser.current_url}')
 
     def should_be_login_form(self):
-        assert self.is_element_present(*LoginPageLocators.LOGIN_FORM), "figa"
+        assert self.is_element_present(*LoginPageLocators.LOGIN_FORM), "login form does not exist"
 
     def should_be_register_form(self):
-        assert self.is_element_present(*LoginPageLocators.REGISTER_FORM), "figa2"
+        assert self.is_element_present(*LoginPageLocators.REGISTER_FORM), "register form does not exist"

@@ -1,4 +1,5 @@
 from selenium.common import NoSuchElementException
+import math
 
 
 class BasePage():
@@ -18,7 +19,7 @@ class BasePage():
             NoSuchElementException
             return False
 
-    def get_current_url(self):
-        ''' return the url on your current session '''
-        base_url = self.browser.current_url
-        return base_url
+    def solve_quiz_and_get_code(self, x):
+        code = str(math.log(abs(12 * math.sin(int(x)))))
+        print('\ncode = ' f'{code}')
+        return code
