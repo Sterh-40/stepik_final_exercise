@@ -12,7 +12,7 @@ class ProductPage(BasePage):
         self.add_to_cart()
         self.get_alert_text()
         self.enter_code_in_prompt_window(self.solve_quiz_and_get_code(self.get_alert_text()))
-        # self.println()
+        self.assertions()
 
     def add_to_cart(self):
         self.browser.find_element(*ProductPageLocators.CART_LINK).click()
@@ -25,10 +25,13 @@ class ProductPage(BasePage):
     def enter_code_in_prompt_window(self, code):
         self.browser.switch_to.alert.send_keys(f'{code}')
         self.browser.switch_to.alert.accept()
+        self.wait_for_alert().accept()
 
-    def println(self):
-        self.browser.implicitly_wait(10)
-        ttt = self.browser.find_element(*ProductPageLocators.BOOK_NAME_1_LINK)
-        # print(ttt)
+    def assertions(self):
+        BOOK_NAME_1 = self.browser.find_element(*ProductPageLocators.BOOK_NAME_1_LINK).text
+        BOOK_NAME_2 = self.browser.find_element(*ProductPageLocators.BOOK_NAME_2_LINK).text
+        BOOK_PRICE_1 = self.browser.find_element(*ProductPageLocators.BOOK_PRICE_1_LINK).text.encode("utf-8")
+        BOOK_PRICE_2 = self.browser.find_element(*ProductPageLocators.BOOK_PRICE_2_LINK).text.encode("utf-8")
 
-    # def assertions(self):
+        assert BOOK_NAME_1 == BOOK_NAME_2, "Book titles don't match"
+        assert BOOK_PRICE_1 == BOOK_PRICE_2, "Book prices don't match"

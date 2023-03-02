@@ -17,5 +17,5 @@ class ProductPageLocators():
     BOOK_NAME_1_LINK = (By.XPATH, "//*[@id='content_inner']/article/div[1]/div[2]/h1")
     BOOK_NAME_2_LINK = (By.XPATH, "//*[@id='messages']/div[1]/div/strong")
 
-    BOOK_PRICE_1_LINK = (By.XPATH, "//*[@id='content_inner']/article/div[1]/div[2]/p[1]1")
+    BOOK_PRICE_1_LINK = (By.XPATH, "//*[@id='content_inner']/article/div[1]/div[2]/p[1]")
     BOOK_PRICE_2_LINK = (By.XPATH, "//*[@id='messages']/div[3]/div/p[1]/strong")

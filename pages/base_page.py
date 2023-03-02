@@ -1,4 +1,7 @@
-from selenium.common import NoSuchElementException
+from selenium.common import NoSuchElementException, TimeoutException
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+
 import math
 
 
@@ -23,3 +26,10 @@ class BasePage():
         code = str(math.log(abs(12 * math.sin(int(x)))))
         print('\ncode = ' f'{code}')
         return code
+
+    def wait_for_alert(self, time=10):
+        try:
+            second_alert = WebDriverWait(self.browser, time).until(EC.alert_is_present())
+        except TimeoutException:
+            print("No second alert on screen")
+        return second_alert
